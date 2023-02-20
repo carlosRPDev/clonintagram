@@ -1,0 +1,17 @@
+= form_with model: @post do |form|
+  
+  - @post.errors.full_messages.each do |error|
+    div
+      = error
+
+  div
+    = form.label      :description
+    = form.text_field :description
+
+  div 
+    = form.label      :image
+    = form.file_field :image
+
+  
+  div
+    = form.submit t('.boton')

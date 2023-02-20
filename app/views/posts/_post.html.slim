@@ -1,0 +1,13 @@
+div
+  - @posts.each do |post|
+    div
+      = post.id
+
+    div
+      = image_tag post.image, width: 100 if post.image.attached?
+
+    div
+      = post.description
+
+    div
+      = link_to 'Ir a la publicación', post_path(post.id)

@@ -1,0 +1,35 @@
+es:
+  activerecord:
+    models:
+      post: Publicación.
+    attributes:
+      post:
+        description: 'Descripción'
+        image: 'Imagen'
+    errors:
+      models:
+        post:
+          attributes:
+            image: 
+              blank: 'no puede estar vacío'
+  common:
+    confirm: '¿Estås seguro?'
+  shared:
+     header:
+       add: 'crear'
+  posts:
+    form:
+      boton: 'Compartir'
+    edit:
+      title: 'Editar información'
+    new:
+      title: 'Crea una nueva publicación'
+    show:
+       edit: 'Editar'
+       delete: 'Eliminar'
+    create:
+      created: 'Se compartió tu publicación.'
+    update:
+      updated: 'publicación actualizada.'
+    destroy:
+      destroyed: 'publicación eliminada.'
