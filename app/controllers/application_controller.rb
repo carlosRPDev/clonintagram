@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_user!
+
   include Pagy::Backend
   
   around_action :switch_locale

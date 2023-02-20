@@ -12,5 +12,10 @@ html
   body
     = render 'shared/flash'
     = render 'shared/header'
+
+    - if user_signed_in?
+      = link_to t('.add'), new_post_path
+      p Signed in as #{current_user.username} #{link_to current_user.email, edit_user_registration_path}
+      = link_to 'Logout', destroy_user_session_path, data: { 'turbo-method': :delete }
     
     = yield
