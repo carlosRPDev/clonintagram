@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.with_attached_image
+    @posts = Post.all.with_attached_image.order(created_at: :desc)
+
+    @pagy, @posts = pagy_countless(@posts, items: 12)
   end
 
   def show
