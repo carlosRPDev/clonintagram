@@ -4,14 +4,13 @@
     div
       = error
 
-  div
-    = form.label      :description
-    = form.text_field :description
-
   div 
     = form.label      :image
     = form.file_field :image
 
+  div
+    = form.label      :description
+    = form.text_field :description
   
   div
     = form.submit t('.boton')
