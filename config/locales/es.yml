@@ -2,10 +2,18 @@ es:
   activerecord:
     models:
       post: Publicación.
+      user: Usuario.
     attributes:
       post:
         description: 'Descripción'
         image: 'Imagen'
+      user:
+        email: 'Correo electrónico'
+        name: 'Nombre completo'
+        username: 'Nombre de usuario'
+        password: 'Contraseña'
+        password_confirmation: 'Confirmar contraseña'
+        current_password: 'Contraseña actual'
     errors:
       models:
         post:
