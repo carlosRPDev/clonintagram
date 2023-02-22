@@ -1,8 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.with_attached_image.order(created_at: :desc)
-
-    @pagy, @posts = pagy_countless(@posts, items: 12)
+    @pagy, @posts = pagy_countless(FindPosts.new.call(post_params_index).load_async, items: 12)
   end
 
   def show
@@ -46,6 +44,10 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:description, :image)
+  end
+
+  def post_params_index
+    params.permit(:username)
   end
 
   def post

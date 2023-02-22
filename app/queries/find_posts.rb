@@ -7,7 +7,7 @@ class FindPosts
 
   def call(params = {})
     scoped = posts
-    scoped = filter_by_username(scoped, params[:username])
+    scoped = filter_by_user_id(scoped, params[:user_id])
     sort(scoped)
   end
 
@@ -17,10 +17,10 @@ class FindPosts
       Post.with_attached_image
     end
 
-    def filter_by_username(scoped, username) 
-      return scoped unless username.present?
+    def filter_by_user_id(scoped, user_id) 
+      return scoped unless user_id.present?
 
-      scoped.where(username: username)
+      scoped.where(user_id: user_id)
     end
 
     def sort(scoped)

@@ -1,10 +1,11 @@
 div
   - @posts.each do |post|
     div
-      = post.id
+      = link_to user_path(post.user.username) do
+        strong = post.user.username
 
     div
-      = image_tag post.image, width: 100 if post.image.attached?
+      = image_tag post.image, width: 250 if post.image.attached?
 
     div
       = post.description

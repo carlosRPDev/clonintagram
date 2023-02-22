@@ -1,0 +1,17 @@
+h2 = @user.username
+hr
+
+strong = @user.posts.count 
+|  publicaciones
+
+h3
+  small = @user.name
+
+p
+  small = @user.presentation
+
+hr
+
+= turbo_frame_tag "user-posts-#{@pagy.page}"
+  = render partial: 'user', colletion: @user
+  = turbo_frame_tag "user-posts-#{@pagy.next}", src: pagy_url_for(@pagy, @pagy.next), loading: :lazy if @pagy.next
