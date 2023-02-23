@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   
   resources :users, only: :show, path: '/user', param: :username
-  resources :posts, path: '/'
+  resources :posts, path: '/' do
+    resources :comments, only: %i[create destroy]
+  end
 end

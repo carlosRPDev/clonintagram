@@ -1,0 +1,3 @@
+= form_with(model: [post, post.comments.build], local: true) do |form|
+  = form.text_field :content
+  = form.submit 'Comentar', data: {turbo: "false" }

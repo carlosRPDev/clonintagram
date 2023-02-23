@@ -1,0 +1,6 @@
+div
+  strong = comment.user.username
+  |  #{comment.content}
+
+  - if current_user == comment.user
+    = link_to t('.delete'), [comment.post, comment], data: { turbo_method: :delete, turbo_confirm: t('common.confirm')}

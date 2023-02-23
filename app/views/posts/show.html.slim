@@ -8,3 +8,9 @@ div
 
 div
   = link_to t('.delete'), post_path(@post), data: { turbo_method: :delete, turbo_confirm: t('common.confirm')}
+
+
+
+= render @post.comments
+
+= render partial: 'comments/form', locals: {post: @post}

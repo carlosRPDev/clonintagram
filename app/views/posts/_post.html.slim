@@ -12,3 +12,7 @@ div
 
     div
       = link_to 'Ir a la publicación', post_path(post.id)
+
+    = render post.comments
+
+    = render partial: 'comments/form', locals: {post: post}
