@@ -10,9 +10,7 @@ div
     div
       = post.description
 
-    div
-      = link_to 'Ir a la publicación', post_path(post.id)
-
-    = render post.comments
+    span
+      = link_to "Ver los #{post.comments.count} comentarios", post_path(post.id)
 
     = render partial: 'comments/form', locals: {post: post}
