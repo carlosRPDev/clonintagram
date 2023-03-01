@@ -19,7 +19,11 @@ class CommentsController < ApplicationController
     @comment = @post.comments.find(params[:id])
 
     @comment.destroy
-    redirect_to post_path(@post)
+    
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.remove("#{helpers.dom_id(@comment)}_item") }
+      format.html { redirect_to post_path(@post) }
+    end
   end
 
   private
