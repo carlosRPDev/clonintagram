@@ -2,9 +2,16 @@ class CommentsController < ApplicationController
   
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(comment_params.merge(user_id: current_user.id))
+    @comment = @post.comments.new(comment_params.merge(user_id: current_user.id))
 
-    redirect_to post_path(@post)
+    respond_to do |format|
+      if @comment.save
+        format.turbo_stream
+        format.html { redirect_to post_path(@post) }
+      else
+        format.html { redirect_to post_path(@post), status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
