@@ -1,16 +1,17 @@
-div
-  - @posts.each do |post|
-    div
-      = link_to user_path(post.user.username) do
-        strong = post.user.username
+- @posts.each do |post|
+  div.flex.justify-center
+    div.block.max-w-md
+      div.py-3
+        = link_to user_path(post.user.username) do
+          strong = post.user.username
 
-    div
-      = image_tag post.image, width: 250 if post.image.attached?
+      div
+        = image_tag post.image if post.image.attached?
 
-    div
-      = post.description
+      div
+        = post.description
 
-    span
-      = link_to "Ver los #{post.comments.count} comentarios", post_path(post.id)
+      div
+        = link_to "Ver los #{post.comments.count} comentarios", post_path(post.id)
 
-    = render partial: 'comments/form', locals: {post: post}
+        = render partial: 'comments/form', locals: {post: post}
