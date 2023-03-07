@@ -3,3 +3,6 @@
 
 = turbo_stream.replace "#{dom_id(@post.comments.build)}_form" do 
   = render "form", post: @post
+
+= turbo_stream.replace "#{dom_id(@post)}" do
+  = link_to "Ver los #{@post.comments.count} comentarios", post_path(@post.id), id: dom_id(@post)

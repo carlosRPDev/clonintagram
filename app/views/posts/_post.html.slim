@@ -12,6 +12,9 @@
         = post.description
 
       div
-        = link_to "Ver los #{post.comments.count} comentarios", post_path(post.id)
+        = link_to "Ver los #{post.comments.count} comentarios", post_path(post.id), id: dom_id(post)
+
+        #comments
+          = render post.comments.order(created_at: :desc).limit(0)
 
         = render partial: 'comments/form', locals: {post: post}
