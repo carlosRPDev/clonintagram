@@ -10,7 +10,7 @@ div
   = link_to t('.delete'), post_path(@post), data: { turbo_method: :delete, turbo_confirm: t('common.confirm')}
 
 
-#comments
+div id="comments_post_#{@post.id}"
   = render @post.comments.order(created_at: :desc)
 
 = render partial: 'comments/form', locals: {post: @post}

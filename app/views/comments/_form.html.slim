@@ -1,3 +1,3 @@
-= form_with(model: [post, post.comments.build], id: "#{dom_id(post.comments.build)}_form") do |form|
+= form_with(model: [post, post.comments.build], id: "#{dom_id(post)}_form") do |form|
   = form.text_field :content, placeholder: 'Agregar comentario'
   = form.submit 'Publicar'

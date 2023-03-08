@@ -1,7 +1,7 @@
-= turbo_stream.prepend "comments" do 
+= turbo_stream.prepend "comments_post_#{@post.id}" do
   = render "comment", comment: @comment
 
-= turbo_stream.replace "#{dom_id(@post.comments.build)}_form" do 
+= turbo_stream.replace "#{dom_id(@post)}_form" do 
   = render "form", post: @post
 
 = turbo_stream.replace "#{dom_id(@post)}" do
